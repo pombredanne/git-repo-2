@@ -64,7 +64,9 @@ class VersionInfo(type):
         return '.'.join(map(str, cls.info))
 
 
-class Version(Command, metaclass=VersionInfo):
+class Version(Command):
+    __metaclass__ = VersionInfo
+
     description = 'Bump version number'
     user_options = [
             ('major', 'M', 'Bump major part of version number'),
